@@ -1,0 +1,216 @@
+body {
+  background-color: #ebe6d1;
+
+  font-family: sans-serif;
+}
+
+.appContainer {
+  max-width: 860px;
+  margin: 30px auto 0 auto;
+  text-align: center;
+  border-radius: 25px;
+  -webkit-box-shadow: 1px 1px 25px 13px rgba(212,205,178,1);
+  -moz-box-shadow: 1px 1px 25px 13px rgba(212,205,178,1);
+  box-shadow: 1px 1px 25px 13px rgba(212,205,178,1);
+}
+
+.appTitle {
+  margin: 0;
+  padding: 1.25em 0 1.25em 0;
+  display: flex;
+  justify-content: center;
+
+  background: rgb(161,135,85);
+  background: linear-gradient(90deg, rgb(120 168 77) 0%, rgb(98 168 70) 35%, rgb(120 168 77) 100%);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.appLogoContainer {
+  height: 64px;
+  width: 64px;
+  padding: 1em;
+
+  display:flex;
+  justify-content: center;
+
+  background: #f8f3d4;
+  border-radius: 50%;
+}
+.appLogo {
+  float: left;
+}
+.appHeadline {
+  font-size: 2.5em;
+  margin: 26px 20px 20px 24px;
+}
+
+
+
+.appContent {
+  height: 100%;
+  min-height: 400px;
+
+  margin: 0 auto;
+  padding: 1.25em 0 1px 0;
+
+  background: rgb(214,197,126);
+  background: linear-gradient(90deg, rgb(183 214 126) 0%, rgb(194 216 133) 35%, rgb(167 214 126) 100%);
+  border-radius: 0 0 25px 25px;
+}
+
+.question {
+  width: 100%;
+}
+
+.produceList {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+.produceItem {
+  height: 142px;
+  width: 142px;
+  min-width: 142px;
+
+  float:left;
+
+  display: block;
+  justify-content: center;
+}
+
+
+.produceItem,
+.produceInfo {
+  margin: 12px;
+
+  border-radius:15px;
+  border-color: rgba(212,205,205,0.25);
+
+  color: #545243;
+  background-color: #e0f8b6;
+}
+
+.produceItem:hover,
+.produceItem.active {
+  cursor: pointer;
+  color: black;
+  background-color: #f3ffed;
+  -webkit-box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.1);
+  -moz-box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.1);
+  box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.1);
+}
+.produceItem.active {
+  color: black;
+  cursor: default;
+}
+.produceItem:active {
+  background-color: #e4eddf;
+  -webkit-box-shadow: -2px -2px 3px 1px rgba(0,0,0,0.1);
+  -moz-box-shadow: -2px -2px 3px 1px rgba(0,0,0,0.1);
+  box-shadow: -2px -2px 3px 1px rgba(0,0,0,0.1);
+}
+.produceItem.active:active {
+  /* Override button default behavior */
+  -webkit-box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.1);
+  -moz-box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.1);
+  box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.1);
+}
+
+.produceInfo {
+  width: auto;
+  min-height: 540px;
+  margin: 12px 30px 30px 30px;
+  padding:32px;
+
+  background-color: #f3ffed;
+  -webkit-box-shadow: 4px 4px 4px 2px rgba(0,0,0,0.05);
+  -moz-box-shadow: 4px 4px 4px 2px rgba(0,0,0,0.05);
+  box-shadow: 4px 4px 4px 2px rgba(0,0,0,0.05);
+  
+  border-radius: 20px;
+  text-align: left;
+}
+
+.produceItem {
+  display: block;
+  justify-content: center;
+  text-align: center;
+}
+.produceImg {
+  height: 62px;
+  width: 62px;
+  margin: 0 auto 12px auto;
+  display: block;
+}
+.choiceTitle {
+  display:block;
+  margin: auto;
+  user-select: none;
+}
+
+
+.infoHeadline {
+  position:relative;
+  display: flex;
+  margin-bottom: 16px;
+  padding-bottom: 18px;
+
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0px 4px 1px 0px rgba(0,0,0,0.1);
+}
+.infoHeadline .produceImg {
+  display :inline;
+  margin: 0 8px 0 -64px;
+}
+.produceInfoHeadline { 
+  display:inline-block;
+  
+  justify-content: center;
+}
+.closeInfoButton {
+  height: 37px;
+  width: 37px;
+
+  position: absolute;
+  right: -12px;
+  top: -12px;
+
+  justify-content: cemter;
+
+  background: white;
+  border-radius: 50%;
+  border: 1px solid #dddddd;
+  color: #aaaaaa;
+}
+.closeInfoButton:hover {
+  cursor:pointer;
+  color: #545243;
+  border-color: #545243;
+
+  -webkit-box-shadow: 5px 4px 4px 0px rgba(0,0,0,0.05);
+  -moz-box-shadow: 5px 4px 4px 0px rgba(0,0,0,0.05);
+  box-shadow: 5px 4px 4px 0px rgba(0,0,0,0.05);
+}
+.closeInfoButton:active {
+  right: -13px;
+  top: -11px;
+
+  color: #545243;
+  border-color: #545243;
+  background-color: #fafafa;
+
+  -webkit-box-shadow: -3px 2px 6px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: -3px 2px 6px 0px rgba(0,0,0,0.1);
+  box-shadow: -3px 2px 6px 0px rgba(0,0,0,0.1);
+}
+
+.closeInfoButton .xSpan {
+  position: absolute;
+  rotate: 45deg;
+  font-size: 32px;
+  top: 0px;
+  right: 8px;
+}
