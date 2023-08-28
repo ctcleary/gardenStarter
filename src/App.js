@@ -42,7 +42,7 @@ export default function App() {
       <div className="appContainer">
         <div className="appTitle">
           <div className="appLogoContainer">
-            <img className="appLogo" src="../img/GardenStarterIcon.png" alt="Garden Starter Logo"/>
+            <img className="appLogo" src={ GetImageFolder() + "GardenStarterIcon.png" } alt="Garden Starter Logo"/>
           </div>
           <h1 className="appHeadline">Welcome to GardenStarter!</h1>
         </div>
@@ -58,6 +58,10 @@ export default function App() {
   );
 }
 
+function GetImageFolder() { 
+  return (window.location.href.indexOf("localhost") == -1) ? "/websamples/gardenstarter/img/" : "../img/";
+}
+
 function ProduceChoice({ item, onProduceItemClick, isActive }) {
   const className = "produceItem " + (isActive ? "active" : "");
   const listKey = "produceItem"+item.name;
@@ -70,53 +74,62 @@ function ProduceChoice({ item, onProduceItemClick, isActive }) {
 }
 
 function ProduceImage({ currentItem }) {
+  const imgFolder = GetImageFolder();
   if (!currentItem.img) {
     return (
-      <img className="produceImage" src="../img/GardenStarterQuestionMark.png" alt={ currentItem.name } />
+      <img className="produceImage" src={ imgFolder + "GardenStarterQuestionMark.png" } alt={ currentItem.name } />
     );
   }
 
   return (
-    <img className="produceImg" src={ currentItem.img } alt={ currentItem.name } />
+    <img className="produceImg" src={ imgFolder + currentItem.img } alt={ currentItem.name } />
   )
 }
 
 
 function ProduceInfo({ item, onCloseInfo }) {
-   if(!item || !item.desc) {
-     return; // In case there is no current selected item.
-   }
+  if(!item) {
+   return; // In case there is no current selected item.
+  }
 
-   return (
-     <div className="produceInfo">
-       <div className="infoHeadline">
-         <button className="closeInfoButton" onClick={() => onCloseInfo()}>
-           <span className="xSpan">+</span>
-         </button>
-         <ProduceImage currentItem={ item } /> 
-         <h2 className="produceInfoHeadline">
-           { item.name }
-         </h2>
-       </div>
-       <div className="produceInfoContent">
-         { item.desc }
-         <ProduceInfoDisplay item={ item } />
-       </div>
+  const itemName = (item.name) ? item.name : "No name found.";
+  const itemDesc = (item.desc) ? item.desc : "No description found.";
+
+  return (
+   <div className="produceInfo">
+     <div className="infoHeadline">
+       <button className="closeInfoButton" onClick={() => onCloseInfo()}>
+         <span className="xSpan">+</span>
+       </button>
+       <ProduceImage currentItem={ item } /> 
+       <h2 className="produceInfoHeadline">
+         { itemName }
+       </h2>
      </div>
-   );
+     <div className="produceInfoContent">
+       { itemDesc }
+       {/*<ProduceInfoDisplay item={ item } />*/}
+     </div>
+   </div>
+  );
 }
+
+/* --- Incomplete feature. 
+       Show "Produce Info" table.
 
 function ProduceInfoDisplay({ item }) {
   const itemKeys = Object.keys(item);
+  console.log('item', item);
   const cleanedItem = {};
-  const filteredeys = itemKeys.filter((key) => {
-    console.log("key ::", key);
+  const filteredKeys = itemKeys.filter((key) => {
+    // console.log("key ::", key);
     if (key === "name" || key === "img") {
       return false;
     }
     return true;
   });
-  console.log("filteredeys ::", filteredeys);
+  // console.log("filteredKeys ::", filteredKeys);
 
   return (<div/>);
 }
+---- */
